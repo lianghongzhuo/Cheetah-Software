@@ -4,27 +4,13 @@
  */
 
 #ifdef linux
-
-#include <errno.h>
-#include <fcntl.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-
+#include <cstdio>
 #define termios asmtermios
-
-#include <asm/termios.h>
-
+#include <asm/ioctls.h>
+#include <sys/ioctl.h>
+#include <asm/termbits.h>
 #undef termios
-
 #include <termios.h>
-#include <math.h>
-#include <pthread.h>
-#include <stropts.h>
-#include <endian.h>
-#include <stdint.h>
-
 #include "rt/rt_serial.h"
 
 void init_serial_for_sbus(int fd, int baud) {
